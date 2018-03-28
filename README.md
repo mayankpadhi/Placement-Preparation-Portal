@@ -1,12 +1,15 @@
 # Placement Preparation Portal
 The  product  is  basically  a  Web  Application  intended  to  develop  the  overall  skills  of  stu-
-dents of IIITV for better placements opportnities. Various features such as delivering content for major CS/IT domains, Resume building, Mock tests/interviews, Project pooling, Aptitude and Reasoning quizzes, notifications about the events, workshops, competitions etc has be incorporated.
-• Providing an overall exposure to students about various Cs/It domains through video
-lectures, websites like Github, IndiaBix.com etc.
-• Providing notifications about competitive events like Hackathons, workshops, seminars, webinars, internships etc.
-• Project pooling, where a student can take an initiative and interested students can join them based on their skills.
-• Enhancing communication skills of the students by organizing more and more GDs, debates, mock HR and Technical interviews so that they can learn to articulate well.
-Students will be the key audience whose overall benefit as individuals will be focused.
+dents of IIITV for better placements opportnities. Various features such as delivering content for major CS/IT domains, mock tests/interviews, project pooling, aptitude and reasoning quizzes, notifications about the events, workshops, competitions etc has be incorporated.<br /> Current Technical features:
+* Providing an overall exposure to students about various Cs/It domains through video
+lectures, websites like Github, IndiaBix etc.
+* Providing notifications about competitive events like Hackathons, workshops, seminars, webinars, internships etc.
+* Project pooling, where a student can take an initiative and interested students can join them based on their skills.
+* Provide platform where content for communication skills and GDs, debates, mock HR and Technical interviews can be hosted.
+* Host quizzes from Moodle.
+* Provide a separate section for records of companies for on-campus placements.
+<br /> Students are the key audience whose overall benefit as individuals will be focused.
+<br /> Please refer to assets folder for screenshots.
 
 ## Quickstart - Deploy project locally
 
