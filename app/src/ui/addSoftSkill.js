@@ -5,7 +5,6 @@ function addsoftSkills() {
 	insertRequest.onreadystatechange=function() {
 		if(insertRequest.readyState===XMLHttpRequest.DONE && insertRequest.status===200) {
 			alert("Record Added!");
-			//requestList();
 		}
 	}
 	var skillHtml = document.getElementById('skillHtml').value;
