@@ -288,12 +288,7 @@
       <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
       <!-- Custom Fonts -->
       <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
+  
    </head>
    <body >
       <!-- <script type="text/javascript" src ="/ui/moderator.js" ></script> -->
@@ -372,7 +367,6 @@
                               </div>
                            </a>
                         </div>
-                        <!-- <a href="#"> <i class="glyphicon glyphicon-user" aria-hidden="true" style="font-size:26px;"> </i> <span style="margin-left:10px;"> Communication Skills</span> </a> -->
                      </li>
                      <li>
                         <a onclick="authTestQuiz();"> <i class="fa" aria-hidden="true" style="font-size:35px; ">&#xf128; </i> <span style="margin-left:18px;"> Quiz</span> </a>
@@ -434,12 +428,6 @@
 				</table>
 
                <div id="companyDet" style="margin-bottom: 20px">
-				<!-- <table> 
-					<tr>
-					  <th class="tg-yw4l"><h4> ${year}</h4></th>
-					  <th class="tg-yw4l"><h4> ${ctc}</h4></th>
-					</tr>
-				</table>-->
                </div>
             </div>
 		 </div>
@@ -455,70 +443,3 @@
       </script>
    </body>
 </html>
-
-
-<!-- 
-function fetchpastCompanyDetails() {
-	var notifBar = "";
-	var notifList;
-	var selectRequest = new XMLHttpRequest();
-	selectRequest.onreadystatechange=function() {
-		if(selectRequest.readyState===XMLHttpRequest.DONE && selectRequest.status===200) {
-			notifList = JSON.parse(selectRequest.responseText);
-			var n = notifList.length;
-			for(var i=0; i < n; i++) {
-				var data = {
-					year : notifList[i].year;
-					ctc : notifList[i].ctc;
-					noOfIntakes : notifList[i].noOfIntakes;
-					}
-				notifBar += createCardNotifQueue(data);
-			}
-			if(notifBar === "") {
-				notifBar = "<h1>No New Notifications!</h1>";
-			}
-			accordion.innerHTML = notifBar;
-		}
-	}
-	selectRequest.open('POST', "https://data.jeopardy25.hasura-app.io/v1/query",true);
-	selectRequest.setRequestHeader('Content-type','application/json');
-	selectRequest.setRequestHeader('Authorization','Bearer '+auth_token);
-	selectRequest.send(JSON.stringify({type: "select",args:{table: "successStories", columns:["*"], order_by:"year", where:{companyName: "Name of company"}}}));
-}
-
-function addpastCompany(year, ctc, noOfIntakes) {
-	var insertRequest = new XMLHttpRequest();
-	insertRequest.onreadystatechange=function() {
-		if(insertRequest.readyState===XMLHttpRequest.DONE && insertRequest.status===200) {
-			alert("Record Added!");
-			requestList();
-		}
-	}
-	insertRequest.open('POST', "https://data.jeopardy25.hasura-app.io/v1/query",true);
-	insertRequest.setRequestHeader('Content-type','application/json');
-	insertRequest.setRequestHeader('Authorization','Bearer '+auth_token);
-	insertRequest.send(JSON.stringify({type: "insert",args:{table: "successStory", objects: {"year": "year",
-																						"noOfIntakes": "noOfIntakes",
-																						"ctc": "ctc"}}}));
-}
-
-function displaypastComapanyData(data) {
-	var projID = data.projID;
-	var projLink = data.projLink;
-	var projectTitle = data.projectTitle;
-	var keywords = data.keywords;
-	var contributors = data.contributors;
-	var cardTemplateNotifQueue = `
-		<table class="tg">
-                <tr>
-				<th class="tg-yw4l"><h4>${year} ${noOfIntakes} ${ctc}</h4></th>
-				<th class="tg-yw4l"><h4>${noOfIntakes}</h4></th>
-				<th class="tg-yw4l"><h4>${ctc}</h4></th>
-                </tr>
-                
-             </table>
-		`;
-		return cardTemplateNotifQueue;	
-}
-
- -->
