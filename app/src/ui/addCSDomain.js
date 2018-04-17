@@ -1,7 +1,4 @@
 var auth_token;
-// var test= document.getElementById('test');
-//window.onload = addDomainFun;	
-// test.onclick = addDomainFun();
 function addDomainFun(){
 	auth_token =  Cookies.get('auth_token');
 	var insertRequest = new XMLHttpRequest();
