@@ -16,13 +16,3 @@ function addsoftSkills() {
 	insertRequest.send(JSON.stringify({type: "insert",args:{table: "softskills", objects: [{skillName: skillName,
 																							skillHtml: skillHtml}]}}));
 }
-
-/*function projPoolCardNotifQueue(data) {
-	var skillID = data.skillID;
-	var skillName = data.skillName;
-	var skillHtml = data.skillHtml;
-	var cardTemplateNotifQueue = `
-		${skillHtml}
-	`;
-		return cardTemplateNotifQueue;	
-}*/
