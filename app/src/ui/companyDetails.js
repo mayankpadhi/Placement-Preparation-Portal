@@ -2,7 +2,6 @@ var auth_token;
 var companyID;
 function fetchpastCompanyDetails(compID) {	
 companyID = compID;
-//console.log('CompanyID '+companyID);
 var url = window.location.href;
 if(!url.includes("/company-details"))
 {
@@ -73,27 +72,7 @@ selectRequest.setRequestHeader('Authorization','Bearer '+auth_token);
 selectRequest.send(JSON.stringify({type: "select",args:{table: "companyDetails", columns:["*"], where:{compID: compID}}}));
 }
 
-/*function addpastCompany(compID) {
-auth_token =  Cookies.get('auth_token');
-var insertRequest = new XMLHttpRequest();
-insertRequest.onreadystatechange=function() {
-	if(insertRequest.readyState===XMLHttpRequest.DONE && insertRequest.status===200) {
-		alert("Record Added!");
-		requestList();
-	}
-}
-insertRequest.open('POST', "https://data.affirmatively33.hasura-app.io/v1/query",true);
-insertRequest.setRequestHeader('Content-type','application/json');
-insertRequest.setRequestHeader('Authorization','Bearer '+auth_token);
-insertRequest.send(JSON.stringify({type: "insert",args:{table: "successStory", objects: {"year": "year",
-																					"noOfIntakes": "noOfIntakes",
-																					"ctc": "ctc"}}}));
-}*/
-
-
-
 function htmlTemplate(data) {
-// var compName = data.compName;
 var compHtml = data.compHtml;
 var cardTemplateNotifQueue = `
 	${compHtml}
@@ -103,7 +82,6 @@ var cardTemplateNotifQueue = `
 
 function nameTemplate(data) {
 var compName = data.compName;
-// var compHtml = data.compHtml;
 var cardTemplateNotifQueue = `
 	${compName}
 	`;
@@ -114,7 +92,6 @@ function tableTemplate(data) {
 var year = data.year;
 var ctc = data.ctc;
 var noOfIntakes = data.noOfIntakes;
-// var compHtml = data.compHtml;
 var cardTemplateNotifQueue = `
 	<table>
 	  <tr>
