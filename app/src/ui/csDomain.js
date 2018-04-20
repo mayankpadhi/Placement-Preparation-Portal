@@ -1,21 +1,16 @@
 var auth_token ;
 var domID;
 var flag=0;
-// window.onload = selectDomain(domID);
-
 
 function selectDomain(domainID) {
 	domID = domainID;
-	//console.log('DomainID '+domID);
 	var url = window.location.href;
 	if(!url.includes("/csdomain"))
 	{
 		
 		window.location = '/csdomain/'+domID;
 	}
-	//console.log("domainId "+domID);
 	auth_token = Cookies.get('auth_token'); 
-	//alert('auth_token');
 	var notifBar = "";
 	var notifBar2 = "";
 	var notifList;
@@ -25,10 +20,6 @@ function selectDomain(domainID) {
 			notifList = JSON.parse(selectRequest.responseText);
 			var n = notifList.length;
 			for(var i=0; i < n; i++) {
-				/*var data = {
-					eventDetails : notifList[i].eventDetails,
-					eventOrgsr : notifList[i].eventOrgsr
-					}*/
 				notifBar += CSDomainCardQueue1(notifList[i]);
 				notifBar2 += CSDomainCardQueue2(notifList[i]);
 				
@@ -49,7 +40,6 @@ function selectDomain(domainID) {
 
 
 function CSDomainCardQueue1(data) {
-	// var domaindetails = data.domaindetails;
 	var domainName = data.domainName;
 
 	var cardTemplateNotifQueue = `
@@ -61,7 +51,6 @@ function CSDomainCardQueue1(data) {
 
 function CSDomainCardQueue2(data) {
 	var domaindetails = data.domaindetails;
-	// var domainName = data.domainName;
 
 	var cardTemplateNotifQueue = `
 		${domaindetails}
