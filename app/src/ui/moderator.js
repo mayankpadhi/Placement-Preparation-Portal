@@ -1,114 +1,6 @@
 var auth_token;
 
-/*function signoutFun(){
-	//alert('inside signout');
-	var request= new XMLHttpRequest();
-	request.onreadystatechange= function(){
-		// alert(auth_token);
-			if (request.readyState=== XMLHttpRequest.DONE){
-			if(request.status=== 200){
-				alert("Signout successful")
-				Cookies.set('auth_token', '');
-				window.location = '/login';
-			}
-			else if(request.status=== 403){
-				alert('Incorrect credentials');
-				window.location = '/login';
-			}
-			else if(request.status=== 500){
-				alert('Something went wrong');
-			}
-			else
-				alert('Request is wrong');
-		}
-	}
-	
-	//make the request
-	request.open('POST', 'https://auth.affirmatively33.hasura-app.io/user/logout', true);
-	request.setRequestHeader('Content-Type', 'application/json');
-	request.setRequestHeader('Authorization', 'Bearer '+ auth_token);
-	request.send(JSON.stringify({}));
-	
-}
-
-function changePass(){
-	//alert('inside signout');
-	var request= new XMLHttpRequest();
-	request.onreadystatechange= function(){
-		// alert(auth_token);
-			if (request.readyState=== XMLHttpRequest.DONE){
-				//console.log("RESP "+request.responseText);
-			if(request.status=== 200){
-				alert("Change password successful");
-			}
-			else if(request.status=== 403){
-				alert('Incorrect credentials');
-			}
-			else if(request.status=== 500){
-				alert('Something went wrong');
-			}
-			else
-				alert('Request is wrong');
-		}
-	}
-	
-	var oldPass = document.getElementById('oldPass').value;
-	var newPass = document.getElementById('newPass').value;
-    var newPassConf = document.getElementById('newPassConf').value;
-	//console.log(oldPass+" "+newPass+" "+newPassConf);
-	if(newPass == newPassConf){
-		//make the request
-		request.open('POST', 'https://auth.affirmatively33.hasura-app.io/user/password/change', true);
-		request.setRequestHeader('Content-Type', 'application/json');
-		request.setRequestHeader('Authorization', 'Bearer '+ auth_token);
-		request.send(JSON.stringify({password : oldPass ,new_password : newPass}));
-		
-	}
-	else{
-		alert("Password mismatch");
-	}
-}*/
-
-//window.onload= authTest;
-/*function authTest()
-{
-	
-	auth_token = Cookies.get('auth_token');
-	var request= new XMLHttpRequest();
-	request.onreadystatechange= function(){
-		//alert(auth_token);
-		if (request.readyState=== XMLHttpRequest.DONE){
-				 
-			if(request.status=== 200){
-				////console.log("auth "+auth_token);
-				//alert('request successful');
-				extEventQueue();
-				intEventQueue();
-				companyQueue();
-				projPoolQueue();
-				extRecruitQueue();
-				storyQueue();
-				//domainMenu();
-				//CSDomainQueue();
-			}
-			else
-			{
-				alert("Status"+request.status);
-				window.location = '/login';
-			}
-				
-		}
-		
-	}
-	
-	//making the request
-	request.open('GET', 'https://auth.affirmatively33.hasura-app.io/user/account/info', true);
-	request.setRequestHeader('Content-Type', 'application/json');
-	request.setRequestHeader('Authorization', 'Bearer '+ auth_token);
-	request.send();
-}*/
-
-//SELECT QUERYS
+//SELECT QUERIES
 function intEventQueue() {
 	var notifBar = "";
 	var notifList;
@@ -118,10 +10,6 @@ function intEventQueue() {
 			notifList = JSON.parse(selectRequest.responseText);
 			var n = notifList.length;
 			for(var i=0; i < n; i++) {
-				/*var data = {
-					eventDetails : notifList[i].eventDetails,
-					eventOrgsr : notifList[i].eventOrgsr
-					}*/
 				notifBar += intEventCardNotifQueue(notifList[i]);
 			}
 			if(notifBar === "") {
@@ -143,17 +31,10 @@ function extEventQueue() {
 	var selectRequest = new XMLHttpRequest();
 	selectRequest.onreadystatechange=function() {
 		if(selectRequest.readyState===XMLHttpRequest.DONE && selectRequest.status===200) {
-		//alert('request successful');
-		////console.log(selectRequest.responseText);
 			notifList = JSON.parse(selectRequest.responseText);
 			////console.log(notifList);
 			var n = notifList.length;
 			for(var i=0; i < n; i++) {
-				/*var data = {
-					eventLink : notifList[i].eventLink,
-					eventDetails1 : notifList[i].eventDetails,
-					eventOrgsr1 : notifList[i].eventOrgsr
-					}*/
 				notifBar += extEventCardNotifQueue(notifList[i]);
 				////console.log(notifBar);
 			}
@@ -179,12 +60,6 @@ function projPoolQueue() {
 			notifList = JSON.parse(selectRequest.responseText);
 			var n = notifList.length;
 			for(var i=0; i < n; i++) {
-				/*var data = {
-					projID : notifList[i].projID,
-					projectTitle : notifList[i].projectTitle,
-					keywords : notifList[i].keywords,
-					contributors : notifList[i].contributors
-					}*/
 				notifBar += projPoolCardNotifQueue(notifList[i]);
 			}
 			if(notifBar === "") {
@@ -208,10 +83,6 @@ function domainMenu() {
 			notifList = JSON.parse(selectRequest.responseText);
 			var n = notifList.length;
 			for(var i=0; i < n; i++) {
-				/*var data = {
-					domaindetails : notifList[i].domaindetails,
-					domainName : notifList[i].domainName
-					}*/
 				notifBar += createCardNotifQueue(notifList[i]);
 			}
 			if(notifBar === "") {
@@ -236,11 +107,6 @@ function companyQueue() {
 			notifList = JSON.parse(selectRequest.responseText);
 			var n = notifList.length;
 			for(var i=0; i < n; i++) {
-				/*var data = {
-					companyName : notifList[i].companyName,
-					companyLink : notifList[i].companyLink,
-					arrivalDate : notifList[i].arrivalDate
-					}*/
 				notifBar += companyCardNotifQueue(notifList[i]);
 			}
 			if(notifBar === "") {
@@ -264,10 +130,6 @@ function extRecruitQueue() {
 			notifList = JSON.parse(selectRequest.responseText);
 			var n = notifList.length;
 			for(var i=0; i < n; i++) {
-				/*var data = {
-					recruitLink : notifList[i].recruitLink,
-					recruitDetails : notifList[i].recruitDetails
-					}*/
 				notifBar += extRecruitmentCardNotifQueue(notifList[i]);
 			}
 			if(notifBar === "") {
@@ -318,11 +180,6 @@ function CSDomainQueue() {
 			notifList = JSON.parse(selectRequest.responseText);
 			var n = notifList.length;
 			for(var i=0; i < n; i++) {
-				/*var data = {
-					domainID : notifList[i].domainID,
-					domainName : notifList[i].domainName,
-					domaindetails : notifList[i].domaindetails
-					}*/
 				notifBar += createCardNotifQueue(notifList[i]);
 			}
 			if(notifBar === "") {
@@ -470,10 +327,7 @@ function addextNotificationQueue( /*eventDate, eventCreated, eventDetails, event
 	insertRequest.setRequestHeader('Content-type','application/json');
 	insertRequest.setRequestHeader('Authorization','Bearer '+auth_token);
 	insertRequest.send(JSON.stringify({type: "insert",args:{table: "extNotification", objects: [{
-																								eventDate: eventDate,																								
-																								eventDetails: eventDetails,
-																								eventOrgsr: eventOrgsr,
-																								eventLink: eventLink}]}}));
+	eventLink: eventLink}]}}));
 	extEventQueue();																								
 }
 
@@ -594,36 +448,6 @@ function addsoftskillsQueue(skillID, skillName, skillLink) {
 																						"skillLink": "skillLink"}}}));
 }
 
-/*
-function storyQueue() {
-	var notifBar = "";
-	var notifList;
-	var selectRequest = new XMLHttpRequest();
-	selectRequest.onreadystatechange=function() {
-		if(selectRequest.readyState===XMLHttpRequest.DONE && selectRequest.status===200) {
-			notifList = JSON.parse(selectRequest.responseText);
-			var n = notifList.length;
-			for(var i=0; i < n; i++) {
-				var data = {
-					story : notifList[i].story
-					}
-				notifBar += createCardNotifQueue(data);
-			}
-			if(notifBar === "") {
-				notifBar = "<h1>No New Notifications!</h1>";
-			}
-			gm101.innerHTML = notifBar;
-		}
-	}
-	selectRequest.open('POST', "https://data.affirmatively33.hasura-app.io/v1/query",true);
-	selectRequest.setRequestHeader('Content-type','application/json');
-	selectRequest.setRequestHeader('Authorization','Bearer '+auth_token);
-	selectRequest.send(JSON.stringify({type: "select",args:{table: "successStories", columns:["*"], order_by:"addtime"}}));
-}
-*/
-
-
-////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////
 ////HTML queues
 function CSDomainCardQueue(data) {
@@ -738,53 +562,3 @@ function projPoolCardNotifQueue(data) {
 		`;
 		return cardTemplateNotifQueue;	
 }
-
-/*
-function CSDomainCardQueue(data) {
-	var domaindetails = data.domaindetails;
-	var domainName = data.domainName;
-	var domainName = data.domainName;
-
-	var cardTemplateNotifQueue = `
-		<table class="tg">
-                <tr>
-<th class="tg-yw4l"><h4><a href=${domaindetails}> ${domainName} </a></h4></th><td> <span class="glyphicon glyphicon-remove" onclick="deleteintNotificationQueue(${notifID})"></span> </td>
-                </tr>
-                
-             </table>
-		`;
-		return cardTemplateNotifQueue;	
-}
-
-
-
-function extEventCardNotifQueue(data) {
-	var eventLink = data.eventLink;
-	var eventDetails1 = data.eventDetails;
-	var eventOrgsr1 = data.eventOrgsr;
-	var notifID = data.notifID;
-	var cardTemplateNotifQueue = `
-			<table class="tg">
-                <tr>
-                  <th class="tg-yw4l"><h4><a href=${eventLink}> ${eventDetails1}- ${eventOrgsr1}</a></h4></th><td> <span class="glyphicon glyphicon-remove" onclick="deleteextNotificationQueue(${notifID})"></span> </td>
-                </tr>
-                
-             </table>
-			  `;
-		return cardTemplateNotifQueue;	
-}
-
-function intEventCardNotifQueue(data) {
-	var eventDetails = data.eventDetails;
-	var eventOrgsr = data.eventOrgsr;
-	
-	var cardTemplateNotifQueue = `
-		<table class="tg">
-                <tr>
-                  <th class="tg-yw4l"><h4> ${eventDetails1} - ${eventOrgsr}</h4></th><td> <span class="glyphicon glyphicon-remove" onclick="deleteintNotificationQueue(${notifID})"></span> </td>
-                </tr>
-                
-             </table>
-		`;
-		return cardTemplateNotifQueue;	
-}*/
